@@ -2,6 +2,8 @@ within Buildings.ThermalZones.ReducedOrder.RC;
 model OneElement "Thermal Zone with one element for exterior walls"
   extends Buildings.Fluid.Interfaces.LumpedVolumeDeclarations;
 
+
+  // Renamed alphaRad to hRad, alphaWin to hConWin, alphaExt to hConExt, alphaExtWallConst to hConExtWall_const, alphaWinConst to hConWin_const
   parameter Modelica.SIunits.Volume VAir "Air volume of the zone"
     annotation(Dialog(group="Thermal zone"));
   parameter Modelica.SIunits.CoefficientOfHeatTransfer hRad
@@ -220,7 +222,7 @@ protected
     annotation (Placement(transformation(
     extent={{5,-5},{-5,5}},
     rotation=-90,
-    origin={-104,-61})));
+    origin={-104,-73})));
   Modelica.Thermal.HeatTransfer.Components.Convection convWin if ATotWin > 0
     "Convective heat transfer of windows"
     annotation (Placement(transformation(extent={{-116,30},{-96,50}})));
@@ -229,7 +231,7 @@ protected
     annotation (Placement(transformation(
     extent={{-6,-6},{6,6}},
     rotation=-90,
-    origin={-106,68})));
+    origin={-106,80})));
   Modelica.Blocks.Math.Gain eRadSol[nOrientations](
     final k=gWin*(1 - ratioWinConRad)*ATransparent) if sum(ATransparent) > 0
     "Emission coefficient of solar radiation considered as radiation"
@@ -356,10 +358,10 @@ equation
   connect(resExtWallWin.port_a, convWin.solid)
     annotation (Line(points={{-146,20},{-146,40},{-116,40}}, color={191,0,0}));
   connect(hConWin_const.y, convWin.Gc)
-    annotation (Line(points={{-106,61.4},{-106,50},{-106,50}},
+    annotation (Line(points={{-106,73.4},{-106,50}},
     color={0,0,127}));
   connect(hConExtWall_const.y, convExtWall.Gc)
-    annotation (Line(points={{-104,-55.5},{-104,-22},{-104,-22},{-104,-50}},
+    annotation (Line(points={{-104,-67.5},{-104,-50}},
     color={0,0,127}));
   connect(convExtWall.fluid, senTAir.port)
     annotation (Line(points={{-94,-40},{66,-40},{66,0},{80,0}},

@@ -138,7 +138,7 @@ equation
   connect(gai.y, pumBui.m_flow_in)
     annotation (Line(points={{-39,-10},{-32,-10}}, color={0,0,127}));
   connect(exp.port_a, pumBui.port_a)
-    annotation (Line(points={{30,0},{30,14},{-20,14},{-20,0}},
+    annotation (Line(points={{30,0},{30,12},{-20,12},{-20,0}},
                                                            color={0,127,255}));
   connect(pro.u1, QCoo.y[1]) annotation (Line(points={{-62,-44},{-80,-44},{-80,-20},
           {-99,-20}}, color={0,0,127}));

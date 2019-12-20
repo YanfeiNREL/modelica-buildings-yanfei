@@ -1,0 +1,28 @@
+Log-file of program ./dymosim
+(generated: Thu Dec 19 17:21:38 2019)
+
+dymosim started
+... "dsin.txt" loading (dymosim input file)
+... loading "tab1" from "C:/Users/YLI3/Yanfei_Projects/modelica-buildings-yanfei/Buildings/Resources/weatherdata/USA_CA_San.Francisco.Intl.AP.724940_TMY3.mos"
+... "CouplingETS_RC_Yanfei_Cooling.mat" creating (simulation result file)
+
+Integration started at T = 0 using integration method DASSL
+(DAE multi-step solver (dassl/dasslrt of Petzold modified by Dynasim))
+Integration terminated successfully at T = 194400
+   CPU-time for integration      : 0.174 seconds
+   CPU-time for one GRID interval: 0.348 milliseconds
+   Number of result points       : 537
+   Number of GRID   points       : 501
+   Number of (successful) steps  : 2212
+   Number of F-evaluations       : 11905
+   Number of H-evaluations       : 2735
+   Number of Jacobian-evaluations: 955
+   Number of (model) time events : 20
+   Number of (U) time events     : 0
+   Number of state    events     : 2
+   Number of step     events     : 0
+   Minimum integration stepsize  : 0.000139
+   Maximum integration stepsize  : 1.06e+03
+   Maximum integration order     : 5
+Calling terminal section
+... "dsfinal.txt" creating (final states)

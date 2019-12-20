@@ -42,12 +42,14 @@ model TimeSeriesBuilding
     annotation (Placement(transformation(extent={{-200,40},{-220,60}})));
 equation
   connect(TCooLoaO.T, cooLoaO.TInd) annotation (Line(points={{-218,-100},{-201,-100}}, color={0,0,127}));
-  connect(minTSet.y, from_degC1.u) annotation (Line(points={{-119,130},{-102,130}}, color={0,0,127}));
+  connect(minTSet.y, from_degC1.u) annotation (Line(points={{-118,130},{-102,
+          130}},                                                                    color={0,0,127}));
   connect(from_degC1.y, heaLoaO[1].TSet)
-    annotation (Line(points={{-79,130},{-60,130},{-60,108},{-178,108}},     color={0,0,127}));
-  connect(maxTSet.y, from_degC2.u) annotation (Line(points={{-119,-130},{-102,-130}}, color={0,0,127}));
+    annotation (Line(points={{-78,130},{-60,130},{-60,108},{-178,108}},     color={0,0,127}));
+  connect(maxTSet.y, from_degC2.u) annotation (Line(points={{-118,-130},{-102,
+          -130}},                                                                     color={0,0,127}));
   connect(from_degC2.y, cooLoaO[1].TSet)
-    annotation (Line(points={{-79,-130},{-60,-130},{-60,-92},{-178,-92}},     color={0,0,127}));
+    annotation (Line(points={{-78,-130},{-60,-130},{-60,-92},{-178,-92}},     color={0,0,127}));
   connect(loa.y[1], Q_flowCooReq[1]) annotation (Line(points={{21,0},{172,0},{172,-192},{310,-192}}, color={0,0,127}));
   connect(loa.y[1], cooLoaO[1].Q_flowReq)
     annotation (Line(points={{21,0},{80,0},{80,-100},{-178,-100}}, color={0,0,127}));
@@ -55,9 +57,11 @@ equation
                                                                                                      color={0,0,127}));
   connect(loa.y[2], Q_flowHeaReq[1]) annotation (Line(points={{21,0},{172,0},{172,195},{310,195}},
                                                                                                  color={0,0,127}));
-  connect(sin.y, Q_flowHeaReq[2]) annotation (Line(points={{21,40},{162,40},{162,205},{310,205}}, color={0,0,127}));
-  connect(sin1.y, from_degC4.u) annotation (Line(points={{-181,50},{-198,50}}, color={0,0,127}));
-  connect(from_degC4.y, THeaLoaT[1].T) annotation (Line(points={{-221,50},{-218,50}}, color={0,0,127}));
+  connect(sin.y, Q_flowHeaReq[2]) annotation (Line(points={{22,40},{162,40},{
+          162,205},{310,205}},                                                                    color={0,0,127}));
+  connect(sin1.y, from_degC4.u) annotation (Line(points={{-182,50},{-198,50}}, color={0,0,127}));
+  connect(from_degC4.y, THeaLoaT[1].T) annotation (Line(points={{-222,50},{-218,
+          50}},                                                                       color={0,0,127}));
   annotation (
   Documentation(info="<html>
   <p>

@@ -2,7 +2,7 @@ within Buildings.HeatTransfer.Sources;
 model PrescribedHeatFlow "Prescribed heat flow boundary condition"
   Modelica.Blocks.Interfaces.RealInput Q_flow
         annotation (Placement(transformation(
-        origin={-100,0},
+        origin={-122,0},
         extent={{20,-20},{-20,20}},
         rotation=180)));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
@@ -82,20 +82,20 @@ Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow</a>.
           color={191,0,0},
           thickness=0.5),
         Line(
-          points={{-80,0},{-60,-20}},
+          points={{-76,-32},{-56,-52}},
           color={191,0,0},
           thickness=0.5),
         Line(
-          points={{-80,0},{-60,20}},
+          points={{-72,22},{-52,42}},
           color={191,0,0},
           thickness=0.5),
         Polygon(
-          points={{60,0},{60,40},{90,20},{60,0}},
+          points={{52,40},{52,80},{82,60},{52,40}},
           lineColor={191,0,0},
           fillColor={191,0,0},
           fillPattern=FillPattern.Solid),
         Polygon(
-          points={{60,-40},{60,0},{90,-20},{60,-40}},
+          points={{62,-80},{62,-40},{92,-60},{62,-80}},
           lineColor={191,0,0},
           fillColor={191,0,0},
           fillPattern=FillPattern.Solid)}));

@@ -1,0 +1,20 @@
+ 
+Compiling and linking the model (Visual C++). 
+ 
+**********************************************************************
+** Visual Studio 2017 Developer Command Prompt v15.8.6
+** Copyright (c) 2017 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x86'
+dsmodel.c
+dsmodel.c(3488): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+c:\users\yli3\yanfei_projects\modelica-buildings-yanfei\buildings\dsmodel.c(585) : warning C4700: uninitialized local variable 'dummy0_0' used
+   Creating library dymosim.lib and object dymosim.exp
+libds.lib(amat.obj) : warning LNK4049: locally defined symbol ___iob_func imported
+libds.lib(dymosim2.obj) : warning LNK4217: locally defined symbol ___iob_func imported in function _dymosimMainModel
+libds.lib(aprint.obj) : warning LNK4049: locally defined symbol ___iob_func imported
+libds.lib(dsres.obj) : warning LNK4049: locally defined symbol ___iob_func imported
+libds.lib(rsyaux.obj) : warning LNK4049: locally defined symbol ___iob_func imported
+ 
+Successful generation of Dymosim. 
+ 

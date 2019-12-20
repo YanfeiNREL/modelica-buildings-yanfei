@@ -106,16 +106,19 @@ model HeatFlowControl
     annotation (Placement(
       transformation(extent={{100,-50},{120,-30}}), iconTransformation(extent={{100,-60},{120,-40}})));
 equation
-  connect(conPID.y, mFloReq.u) annotation (Line(points={{-29,60},{-24,60},{-20,60},{-10,60}}, color={0,0,127}));
-  connect(gai2.y, conPID.u_s) annotation (Line(points={{-63,60},{-52,60}}, color={0,0,127}));
-  connect(conPID.u_m, gai1.y) annotation (Line(points={{-40,48},{-40,39}}, color={0,0,127}));
+  connect(conPID.y, mFloReq.u) annotation (Line(points={{-28,60},{-28,60},{-20,
+          60},{-10,60}},                                                                      color={0,0,127}));
+  connect(gai2.y, conPID.u_s) annotation (Line(points={{-62,60},{-52,60}}, color={0,0,127}));
+  connect(conPID.u_m, gai1.y) annotation (Line(points={{-40,48},{-40,40}}, color={0,0,127}));
   connect(UA, heaFloEff.UA) annotation (Line(points={{-120,90},{46,90},{46,64},{62,64}}, color={0,0,127}));
   connect(heaFloEff.Q_flow, gai1.u)
     annotation (Line(points={{85,56},{88,56},{88,0},{-40,0},{-40,16}}, color={0,0,127}));
   connect(Q_flowReq, gai2.u) annotation (Line(points={{-120,50},{-94,50},{-94,60},{-86,60}}, color={0,0,127}));
-  connect(mFloReq.y, m_flow1) annotation (Line(points={{13,60},{40,60},{40,40},{110,40}}, color={0,0,127}));
+  connect(mFloReq.y, m_flow1) annotation (Line(points={{14,60},{40,60},{40,40},
+          {110,40}},                                                                      color={0,0,127}));
   connect(heaFloEff.Q_flow, Q_flow) annotation (Line(points={{85,56},{88,56},{88,-40},{110,-40}}, color={0,0,127}));
-  connect(mFloReq.y, heaFloEff.m_flow1) annotation (Line(points={{13,60},{38,60},{38,60},{62,60}}, color={0,0,127}));
+  connect(mFloReq.y, heaFloEff.m_flow1) annotation (Line(points={{14,60},{38,60},
+          {38,60},{62,60}},                                                                        color={0,0,127}));
   connect(T1Inl, heaFloEff.T1Inl) annotation (Line(points={{-120,10},{46,10},{46,56},{62,56}}, color={0,0,127}));
   connect(m_flow2, heaFloEff.m_flow2) annotation (Line(points={{-120,-30},{50,-30},{50,52},{62,52}}, color={0,0,127}));
   connect(T2Inl, heaFloEff.T2Inl) annotation (Line(points={{-120,-70},{54,-70},{54,48},{62,48}}, color={0,0,127}));

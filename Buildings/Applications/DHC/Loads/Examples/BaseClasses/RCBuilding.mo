@@ -28,17 +28,21 @@ model RCBuilding "Building model of type RC one element"
                                   corGDouPan(n=2, UWin=2.1)
     "Correction factor for solar transmission"
     annotation (Placement(transformation(extent={{6,54},{26,74}})));
+
+
+
+
   Buildings.ThermalZones.ReducedOrder.RC.OneElement
                 thermalZoneOneElement(
     VAir=52.5,
-    alphaExt=2.7,
-    alphaWin=2.7,
+    hConExt=2.7,
+    hConWin=2.7,
     gWin=1,
     ratioWinConRad=0.09,
     nExt=1,
     RExt={0.00331421908725},
     CExt={5259932.23},
-    alphaRad=5,
+    hRad=5,
     RWin=0.01642857143,
     RExtRem=0.1265217391,
     nOrientations=2,
@@ -58,9 +62,9 @@ model RCBuilding "Building model of type RC one element"
     wfWin={0.5,0.5},
     withLongwave=true,
     aExt=0.7,
-    alphaWallOut=20,
-    alphaRad=5,
-    alphaWinOut=20,
+    hConWinOut=20,
+    hRad=5,
+    hConWallOut=20,
     TGro=285.15) "Computes equivalent air temperature"
     annotation (Placement(transformation(extent={{-24,-14},{-4,6}})));
   Modelica.Blocks.Math.Add solRad[2]
@@ -108,13 +112,7 @@ model RCBuilding "Building model of type RC one element"
     extent={{-4,-4},{4,4}},
     rotation=90,
     origin={30,-16})));
-  Modelica.Blocks.Sources.Constant alphaWin(k=20*14)
-    "Outdoor coefficient of heat transfer for windows"
-    annotation (Placement(
-    transformation(
-    extent={{4,-4},{-4,4}},
-    rotation=90,
-    origin={32,38})));
+
   Buildings.Controls.OBC.CDL.Continuous.Sources.Constant minTSet(k=20)
     "Minimum temperature setpoint"
     annotation (Placement(transformation(extent={{-140,120},{-120,140}})));
@@ -147,12 +145,18 @@ model RCBuilding "Building model of type RC one element"
     amplitude=500,
     freqHz=1/86400,
     offset=500) annotation (Placement(transformation(extent={{-10,170},{10,190}})));
+  Modelica.Blocks.Sources.Constant hConWin_Const(k=25*11.5)
+    "Outdoor coefficient of heat transfer for walls" annotation (Placement(
+        transformation(
+        extent={{-4,-4},{4,4}},
+        rotation=0,
+        origin={24,38})));
 equation
   connect(eqAirTemp.TEqAirWin,preTem1. T)
     annotation (Line(
-    points={{-3,-0.2},{0,-0.2},{0,20},{6.8,20}},   color={0,0,127}));
+    points={{-3,-0.2},{0,-0.2},{0,20},{6.2,20}},   color={0,0,127}));
   connect(eqAirTemp.TEqAir,preTem. T)
-    annotation (Line(points={{-3,-4},{4,-4},{4,0},{6.8,0}},
+    annotation (Line(points={{-3,-4},{4,-4},{4,0},{6.2,0}},
     color={0,0,127}));
   connect(intGai.y[1],perRad. Q_flow)
     annotation (Line(points={{14.8,-32},{48,-32}},
@@ -202,8 +206,6 @@ equation
     annotation (Line(points={{26,1},{24,1},{24,0},{20,0}}, color={191,0,0}));
   connect(alphaWall.y,theConWall. Gc)
     annotation (Line(points={{30,-11.6},{30,-4},{31,-4}}, color={0,0,127}));
-  connect(alphaWin.y,theConWin. Gc)
-    annotation (Line(points={{32,33.6},{32,26},{33,26}}, color={0,0,127}));
   connect(macConv.port,thermalZoneOneElement. intGainsConv)
     annotation (
     Line(points={{68,-66},{98,-66},{98,12},{92,12}},          color={191,
@@ -286,6 +288,8 @@ equation
     annotation (Line(points={{92,12},{98,12},{98,-150},{-260,-150}}, color={191,0,0}));
   connect(thermalZoneOneElement.intGainsConv, heaFloHeaLoaH[1].port_b)
     annotation (Line(points={{92,12},{98,12},{98,150},{-260,150}}, color={191,0,0}));
+  connect(hConWin_Const.y, theConWin.Gc) annotation (Line(points={{28.4,38},{30,
+          38},{30,26},{33,26}}, color={0,0,127}));
   annotation (
   Documentation(info="<html>
   <p>
@@ -309,5 +313,52 @@ equation
   </p>
   </html>"),
   Diagram(coordinateSystem(extent={{-300,-300},{300,300}})), Icon(
-        coordinateSystem(extent={{-100,-100},{100,100}})));
+        coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
+        Rectangle(
+          extent={{-90,82},{100,-98}},
+          lineColor={28,108,200},
+          fillColor={244,125,35},
+          fillPattern=FillPattern.CrossDiag),
+        Line(points={{0,82},{0,-100}}, color={28,108,200}),
+        Rectangle(
+          extent={{-28,12},{26,-98}},
+          lineColor={28,108,200},
+          fillColor={0,140,72},
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{-178,138},{-178,138}},
+          lineColor={28,108,200},
+          fillPattern=FillPattern.Sphere,
+          fillColor={244,125,35}),
+        Ellipse(
+          extent={{18,-48},{22,-52}},
+          lineColor={28,108,200},
+          fillColor={0,140,72},
+          fillPattern=FillPattern.CrossDiag),
+        Rectangle(
+          extent={{-20,4},{20,-18}},
+          lineColor={28,108,200},
+          fillColor={0,140,72},
+          fillPattern=FillPattern.CrossDiag),
+        Polygon(
+          points={{-90,82},{0,82},{0,146},{-90,82}},
+          lineColor={28,108,200},
+          fillColor={175,175,175},
+          fillPattern=FillPattern.Backward),
+        Polygon(
+          points={{100,82},{0,82},{0,146},{100,82}},
+          lineColor={28,108,200},
+          fillColor={175,175,175},
+          fillPattern=FillPattern.Backward),
+        Rectangle(
+          extent={{-74,64},{80,24}},
+          lineColor={28,108,200},
+          fillColor={175,175,175},
+          fillPattern=FillPattern.VerticalCylinder),
+        Text(
+          extent={{-48,-104},{68,-122}},
+          lineColor={28,108,200},
+          fillPattern=FillPattern.VerticalCylinder,
+          fillColor={175,175,175},
+          textString="Building")}));
 end RCBuilding;

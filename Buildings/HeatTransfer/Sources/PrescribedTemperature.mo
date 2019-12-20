@@ -4,7 +4,7 @@ model PrescribedTemperature "Variable temperature boundary condition in Kelvin"
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{90,
             -10},{110,10}})));
   Modelica.Blocks.Interfaces.RealInput T annotation (Placement(transformation(
-          extent={{-140,-20},{-100,20}})));
+          extent={{-150,-20},{-110,20}})));
 equation
   port.T = T;
   annotation (
@@ -44,21 +44,21 @@ as required to keep the temperature at the specified value.
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
         Rectangle(
-          extent={{-100,100},{100,-100}},
+          extent={{-70,50},{24,-40}},
           lineColor={0,0,0},
           pattern=LinePattern.None,
           fillColor={159,159,223},
           fillPattern=FillPattern.Backward),
         Text(
-          extent={{0,0},{-100,-100}},
+          extent={{20,-68},{-22,-106}},
           lineColor={0,0,0},
           textString="K"),
         Line(
-          points={{-102,0},{64,0}},
+          points={{-102,30},{64,30}},
           color={191,0,0},
           thickness=0.5),
         Polygon(
-          points={{52,-20},{52,20},{90,0},{52,-20}},
+          points={{58,48},{58,88},{96,68},{58,48}},
           lineColor={191,0,0},
           fillColor={191,0,0},
           fillPattern=FillPattern.Solid)}));
